@@ -1,30 +1,32 @@
 .pwdWrap {
   position: fixed;
-  bottom: 0rem;
-  left: 0rem;
-  height: 5.6rem;
+  bottom: 0px;
+  left: 0px;
+  height: 280px;
   width: 100%;
   input {
     border: 1px solid #b2b2b2;
     box-sizing: border-box;
     border-right: none;
-    width: 0.84rem;
-    height: 0.84rem;
-    font-size: 0.36rem;
-    padding-left: 0.3rem;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+    padding-left: 15px;
     &:last-of-type {
       border-right: 1px solid #b2b2b2;
     }
   }
 }
 .pwdWrapOut {
-  margin: 0.8rem auto 0 auto;
+  margin: 40px auto 0 auto;
+  width: 252px;
 }
 .forget {
   color: #007aff;
-  margin-top: 0.1rem;
+  margin-top: 5px;
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
 }
 .mask {
   position: fixed;
@@ -39,30 +41,30 @@
   background: #fff;
   position: fixed;
   width: 100%;
-  height: 5.6rem;
-  bottom: 0rem;
-  font-size: 0.32rem;
+  height: 280px;
+  bottom: 0px;
+  font-size: 16px;
   overflow: scroll;
   .choose {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 100%;
     background: #fff;
-    padding: 0 0.4rem;
-    height: 0.88rem;
+    height: 44px;
     border-bottom: 1px solid #eee;
     position: fixed;
-    bottom: 5.6rem;
-    left: 0rem;
+    bottom: 280px;
+    left: 0px;
     i {
-      font-size: 0.44rem;
+      font-size: 22px;
       color: #ddd;
     }
   }
   ul {
     list-style-type: none;
-    padding: 0rem 0.4rem;
+    padding: 0px 20px;
     li {
       display: flex;
       flex-direction: row;
@@ -70,30 +72,30 @@
       align-items: center;
       border-bottom: 1px solid #eee;
       color: #333;
-      padding: 0.2rem 0rem;
+      padding: 10px 0px;
       i {
         color: #ff6200;
-        font-size: 0.4rem;
+        font-size: 20px;
       }
     }
   }
   .gray {
     color: #999;
-    font-size: 0.28rem;
-    margin-top: 0.1rem;
+    font-size: 14px;
+    margin-top: 5px;
   }
 }
 .addBtn {
   border: 1px solid #ddd;
   color: #666;
   border-radius: 5px;
-  padding: 0.36rem 0rem;
-  margin: 0.6rem 0.4rem;
+  padding: 18px 0px;
+  margin: 30px 20px;
 
   span {
-    font-size: 0.6rem;
-    margin-top: -0.12rem;
-    margin-right: 0.1rem;
+    font-size: 30px;
+    margin-top: -6px;
+    margin-right: 5px;
   }
 }
 .disc {
@@ -102,9 +104,25 @@
 .tit {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 .inputWrap {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  height: 48px;
+}
+.pwdMask {
+  height: 48px;
+  width: 100%;
+  background: #ff0;
+  position: absolute;
+  z-index: 9999;
+  opacity: 0;
+}
+.leftArrow {
+  position: absolute;
+  left: 20px;
+  width: 18px;
 }

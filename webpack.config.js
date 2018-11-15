@@ -14,9 +14,10 @@ module.exports = {
       { 
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
             // options: ['@babel/preset-env']
           }
         ]
@@ -35,11 +36,11 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
       }
     ]
   }
-
-  // plugins: [
-  //   new CleanWebpackPlugin(['lib'])
-  // ]
 }
