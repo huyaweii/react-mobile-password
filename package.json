@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress",
+    "build": "webpack --progress && npm link",
     "watch": "webpack --watch --progress"
   },
   "author": "xiaoxiaoniao",
@@ -22,13 +22,21 @@
     "style-loader": "^0.21.0",
     "webpack-cli": "^3.0.8"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
+    "file-loader": "^2.0.0",
     "node-sass": "^4.9.2",
     "sass-loader": "^7.0.3",
+    "url-loader": "^1.1.2",
     "webpack": "^4.15.1"
   }
 }
