@@ -1,8 +1,8 @@
 {
-  "name": "mobile-react",
-  "version": "1.0.0",
-  "description": "react移动组件库",
-  "main": "index.js",
+  "name": "mobile-react-password",
+  "version": "1.0.1",
+  "description": "移动端密码输入框",
+  "main": "lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress && npm link",
