@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
+
 import style from './style.scss'
 import leftArrow from './images/left-arrow.png'
 export default class InputPassword extends Component {
-  // static propTypes = {
-  //   onBack: React.PropTypes.func.isRequired,
-  //   onSubmit: React.PropTypes.func.isRequired,
-  //   title: React.PropTypes.string
-  // }
   constructor (props) {
     super(props)
     this.state = {
@@ -89,4 +86,10 @@ export default class InputPassword extends Component {
       </div>
     )
   }
+}
+InputPassword.propTypes = {
+  title: PropTypes.string.isRequired,
+  onBack: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onGetPassword: PropTypes.func.isRequired
 }
