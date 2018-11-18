@@ -13,6 +13,11 @@ npm i react-mobile-password
     <th>类型</th>
   </tr>
   <tr>
+    <th>title</th>
+    <th>密码框的标题</th>
+    <th>String</th>
+  </tr>
+  <tr>
     <th>onBack</th>
     <th>关闭时触发的函数</th>
     <th>Function</th>
@@ -23,9 +28,9 @@ npm i react-mobile-password
     <th>Function</th>
   </tr>
   <tr>
-    <th>title</th>
-    <th>密码框的标题</th>
-    <th>String</th>
+    <th>onGetPassword</th>
+    <th>找回密码的回调函数</th>
+    <th>Function</th>
   </tr>
 </table>
 
