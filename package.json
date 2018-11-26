@@ -1,6 +1,6 @@
 {
   "name": "react-mobile-password",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "移动端密码输入框",
   "main": "lib/main.js",
   "scripts": {
