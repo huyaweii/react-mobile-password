@@ -7,76 +7,78 @@ export default class InputPassword extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      current: 0,
       password: ['', '', '', '', '', '']
+    }
+  }
+  static defaultProps() {
+    return {
+      height: '280px'
     }
   }
 
   componentDidMount () {
-    this.input0.focus()
+    this.inputPwd.focus()
   }
   
-  handleChange (index, e) {
-    let {current, password} = this.state
+  handleChange (e) {
+    let {password} = this.state
     password = [...password]
     let val = e.target.value
     if (val === '' || !/[0-9]/.test(val)) {
-      // this.refs[`input${current}`].input.value === ''
       return
     }
-    password[index] = val
-    if (current === 5) {
-      this[`input${current}`].blur()
+    const index = val.length - 1
+    password[index] = val.slice(-1)
+    if (e.target.value.length === 6) {
       this.setState({password})
       this.props.onSubmit(password.join(''))
       return false
     }
-    current++
-    this[`input${current}`].focus()
-    this.setState({current, password})
+    this.setState({password})
   }
-  handleListenDelete (index, e) {
-    let {current, password} = this.state
+  handleListenDelete (e) {
+    let {password} = this.state
     password = [...password]
-    if (e.keyCode !== 8 || current === 0) {
+    if (e.keyCode !== 8) {
       return
     }
-    current--
-    password[index - 1] = ''
-    this[`input${current}`].focus()
-    this.setState({current, password})
+    const index = e.target.value.length - 1
+    password[index] = ''
+    this.setState({ password })
   }
-  handleFocusCurrent () {
-    this[`input${this.state.current}`].focus()
+  handleFocusCurrent (e) {
+    this.inputPwd.focus()
+    e.stopPropagation()
   }
   render () {
     const { password } = this.state
-    const { title, onBack, onGetPassword } = this.props
+    const { title, onBack, onGetPassword, height } = this.props
     return (
       <div className={style.mask}>
-        <img src={leftArrow} />
-        <div className={style.bankWrap}>
-          <div className={style.choose}>
+        <div className={style.bankWrap} style={{height}}>
+          <div className={style.choose} style={{bottom: height}}>
             <img src={leftArrow} onClick={onBack} className={style.leftArrow} />
             <div className={style.tit} flex={1} align='center'>
               {title}
             </div>
           </div>
         </div>
-        <div className={style.pwdWrap}>
+        <div className={style.pwdWrap} style={{height}}>
           <div width='504px' className={style.pwdWrapOut}>
             <div className={style.inputWrap}>
               {password.map((pwd, index) => (
-                <input
-                  type='tel'
-                  value={password[index]}
-                  ref={el => this[`input${index}`] = el}
-                  onChange={this.handleChange.bind(this, index)}
-                  onKeyDown={this.handleListenDelete.bind(this, index)}
-                  className={style.disc}
-                />
+                <div className={style.disc}>
+                  {password[index]}
+                </div>
               ))}
-              <div className={style.pwdMask} onClick={this.handleFocusCurrent.bind(this)} />
+              <input
+                ref={el => this['inputPwd'] = el}
+                type='tel'
+                onChange={this.handleChange.bind(this)}
+                onKeyDown={this.handleListenDelete.bind(this)}
+                className={style.inputPwd}
+              />
+              <div className={style.pwdMask} onClick={this.handleFocusCurrent.bind(this)}/>
             </div>
             <div className={style.forget} onClick={onGetPassword}>
               忘记密码?
