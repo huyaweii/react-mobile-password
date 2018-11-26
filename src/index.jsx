@@ -99,5 +99,6 @@ InputPassword.propTypes = {
   title: PropTypes.string.isRequired,
   onBack: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onGetPassword: PropTypes.func.isRequired
+  onGetPassword: PropTypes.func.isRequired,
+  height: PropTypes.string
 }

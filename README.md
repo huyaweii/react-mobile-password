@@ -17,6 +17,12 @@ npm i react-mobile-password
     <th>密码框的标题</th>
     <th>String</th>
   </tr>
+  
+  <tr>
+    <th>height</th>
+    <th>密码框的高度</th>
+    <th>String</th>
+  </tr>
   <tr>
     <th>onBack</th>
     <th>关闭时触发的函数</th>
@@ -33,4 +39,4 @@ npm i react-mobile-password
     <th>Function</th>
   </tr>
 </table>
-
+![image](https://github.com/huyaweii/react-mobile-password/pwd.gif)
