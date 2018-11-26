@@ -39,4 +39,4 @@ npm i react-mobile-password
     <th>Function</th>
   </tr>
 </table>
-![image](https://github.com/huyaweii/react-mobile-password/pwd.gif)
+![image](https://github.com/huyaweii/react-mobile-password/blob/master/pwd.gif)
