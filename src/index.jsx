@@ -56,14 +56,17 @@ export default class InputPassword extends Component {
     return (
       <div className={style.mask}>
         <div className={style.bankWrap} style={{height}}>
-          <div className={style.choose} style={{bottom: height}}>
-            <img src={leftArrow} onClick={onBack} className={style.leftArrow} />
+          <div className={style.choose} style={{bottom: height}} onClick={this.handleFocusCurrent.bind(this)}>
+            <img src={leftArrow} onClick={e => {
+              onBack()
+              e.stopPropagation()
+            }} className={style.leftArrow} />
             <div className={style.tit} flex={1} align='center'>
               {title}
             </div>
           </div>
         </div>
-        <div className={style.pwdWrap} style={{height}}>
+        <div className={style.pwdWrap} style={{height}} onClick={this.handleFocusCurrent.bind(this)}>
           <div width='504px' className={style.pwdWrapOut}>
             <div className={style.inputWrap}>
               {password.map((pwd, index) => (
@@ -80,8 +83,11 @@ export default class InputPassword extends Component {
               />
               <div className={style.pwdMask} onClick={this.handleFocusCurrent.bind(this)}/>
             </div>
-            <div className={style.forget} onClick={onGetPassword}>
-              忘记密码?
+            <div className={style.forget}>
+              <span onClick={ e =>{
+                onGetPassword()
+                e.stopPropagation()
+              }}>忘记密码?</span>
             </div>
           </div>
         </div>
