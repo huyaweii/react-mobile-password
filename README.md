@@ -1,6 +1,6 @@
 # react-mobile-password
 
-![image](https://github.com/huyaweii/react-mobile-password/blob/master/pwd.gif)
+![image](https://github.com/huyaweii/fileManage/blob/master/pwd.gif)
 
 ### Description 
 用react实现一个类似支付宝，京东的密码输入框组件。
