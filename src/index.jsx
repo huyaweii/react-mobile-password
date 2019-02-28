@@ -29,9 +29,13 @@ export default class InputPassword extends Component {
     }
     const index = val.length - 1
     password[index] = val.slice(-1)
-    if (e.target.value.length === 6) {
+    if (val.length === 6) {
       this.setState({password})
       this.props.onSubmit(password.join(''))
+      return false
+    }
+    if (val.length > 6) {
+      this.inputPwd.value = val.slice(0, 6)
       return false
     }
     this.setState({password})
@@ -50,17 +54,22 @@ export default class InputPassword extends Component {
     this.inputPwd.focus()
     e.stopPropagation()
   }
+  handleBack (e) {
+    this.props.onBack()
+    e.stopPropagation()
+  }
+  handleGetPassword (e) {
+    this.props.onGetPassword()
+    e.stopPropagation()
+  }
   render () {
     const { password } = this.state
-    const { title, onBack, onGetPassword, height } = this.props
+    const { title, height } = this.props
     return (
       <div className={style.mask}>
         <div className={style.bankWrap} style={{height}}>
           <div className={style.choose} style={{bottom: height}} onClick={this.handleFocusCurrent.bind(this)}>
-            <img src={leftArrow} onClick={e => {
-              onBack()
-              e.stopPropagation()
-            }} className={style.leftArrow} />
+            <img src={leftArrow} onClick={this.handleBack.bind(this)} className={style.leftArrow} />
             <div className={style.tit} flex={1} align='center'>
               {title}
             </div>
@@ -84,10 +93,7 @@ export default class InputPassword extends Component {
               <div className={style.pwdMask} onClick={this.handleFocusCurrent.bind(this)}/>
             </div>
             <div className={style.forget}>
-              <span onClick={ e =>{
-                onGetPassword()
-                e.stopPropagation()
-              }}>忘记密码?</span>
+              <span onClick={this.handleGetPassword.bind(this)}>忘记密码?</span>
             </div>
           </div>
         </div>
@@ -95,6 +101,7 @@ export default class InputPassword extends Component {
     )
   }
 }
+
 InputPassword.propTypes = {
   title: PropTypes.string.isRequired,
   onBack: PropTypes.func.isRequired,
