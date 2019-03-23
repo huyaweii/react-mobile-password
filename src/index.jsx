@@ -24,7 +24,8 @@ export default class InputPassword extends Component {
     let {password} = this.state
     password = [...password]
     let val = e.target.value
-    if (val === '' || !/[0-9]/.test(val)) {
+    if (!/^\d{1,}$/.test(val)) {  
+      this.inputPwd.value = val.replace(/[^0-9]/ig, "")
       return
     }
     const index = val.length - 1
